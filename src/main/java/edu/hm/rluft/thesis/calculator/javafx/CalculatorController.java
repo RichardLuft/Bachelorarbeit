@@ -54,8 +54,6 @@ public class CalculatorController implements Initializable {
   private Button buttonClear;
   @FXML
   private Button buttonClearAll;
-  @FXML
-  private Button buttonComma;
 
   @FXML
   private TextField textfieldResult;
@@ -91,7 +89,6 @@ public class CalculatorController implements Initializable {
     // Binding (Support)
     BnFxBinder.bind(buttonClear, localModelProvider, new Path("clear"));
     BnFxBinder.bind(buttonClearAll, localModelProvider, new Path("clearAll"));
-    BnFxBinder.bind(buttonComma, localModelProvider, new Path("comma"));
 
     // Binding (Result)
     BnFxBinder.bind(textfieldResult, localModelProvider, new Path("resultText"));

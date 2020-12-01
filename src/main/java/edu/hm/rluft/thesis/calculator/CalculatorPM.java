@@ -1,5 +1,6 @@
 package edu.hm.rluft.thesis.calculator;
 
+import java.text.DecimalFormat;
 import org.beanfabrics.model.AbstractPM;
 import org.beanfabrics.model.IntegerPM;
 import org.beanfabrics.model.OperationPM;
@@ -27,7 +28,6 @@ public class CalculatorPM extends AbstractPM {
 
   private OperationPM clear = new OperationPM();
   private OperationPM clearAll = new OperationPM();
-  private OperationPM comma = new OperationPM();
 
   private IntegerPM resultText = new IntegerPM();
   private OperationPM result = new OperationPM();
@@ -38,6 +38,7 @@ public class CalculatorPM extends AbstractPM {
   public CalculatorPM() {
     resultText.setEditable(false);
     resultText.setInteger(0);
+    resultText.setFormat(new IntegerPM.Format(new DecimalFormat("#")));
     PMManager.setup(this);
   }
 

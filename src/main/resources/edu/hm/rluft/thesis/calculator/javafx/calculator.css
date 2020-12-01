@@ -12,7 +12,7 @@
 
 .button-zero {
   -fx-pref-height: 3.5em;
-  -fx-pref-width: 7.5em;
+  -fx-pref-width: 11.5em;
 }
 
 .button-result {
@@ -24,6 +24,8 @@
   -fx-pref-height: 5.0em;
   -fx-font-size: 1.5em;
   -fx-font-weight: bold;
+  /*
+  * -fx-content-display: right;
+  */
 }
-
 
