@@ -1,0 +1,29 @@
+/*
+  JavaFX-CSS-Dokumentation:
+    https://docs.oracle.com/javase/8/javafx/api/javafx/scene/doc-files/cssref.html
+  Modena-Style:
+    https://github.com/javafxports/openjdk-jfx/blob/master/modules/javafx.controls/src/main/resources/com/sun/javafx/scene/control/skin/modena/modena.css
+*/
+
+.button {
+  -fx-pref-height: 3.5em;
+  -fx-pref-width: 3.5em;
+}
+
+.button-zero {
+  -fx-pref-height: 3.5em;
+  -fx-pref-width: 7.5em;
+}
+
+.button-result {
+  -fx-pref-height: 7.5em;
+  -fx-pref-width: 3.5em;
+}
+
+.textfield-result {
+  -fx-pref-height: 5.0em;
+  -fx-font-size: 1.5em;
+  -fx-font-weight: bold;
+}
+
+
