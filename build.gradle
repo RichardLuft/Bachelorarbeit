@@ -12,9 +12,7 @@ ext.libs = [
   beanfabrics_core:             'org.beanfabrics:beanfabrics-core:1.4.3',
   controls_fx:                  'org.controlsfx:controlsfx:8.40.17',
   guava:                        'com.google.guava:guava:20.0',
-  beanfabrics_fx_local:         files("C:\\Devel\\workspace\\beanfabrics-fx\\build\\libs\\beanfabrics-fx-LOCAL-SNAPSHOT.jar"),
-
-  beanfabrics_fx:               'org.beanfabrics:beanfabrics-fx:2.0.7',
+  beanfabrics_fx_local:         files("C:\\Users\\Richard-PC\\OneDrive\\HM\\Bachelorarbeit\\beanfabrics-fx\\build\\libs\\beanfabrics-fx-LOCAL-SNAPSHOT.jar"), // Hier das lokale Beanfabrics-FX jar einfügen
 ]
 
 repositories {
