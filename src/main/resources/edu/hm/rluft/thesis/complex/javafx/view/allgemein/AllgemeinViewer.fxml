@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<BorderPane fx:id="root" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.hm.rluft.thesis.complex.javafx.view.allgemein.AllgemeinViewerController">
+   <center>
+      <GridPane hgap="5.0" vgap="5.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          	<ColumnConstraints hgrow="NEVER" />
+            <ColumnConstraints hgrow="NEVER" />
+            <ColumnConstraints hgrow="NEVER" />
+        </columnConstraints>
+        <rowConstraints>
+           	<RowConstraints vgrow="NEVER" />
+    		<RowConstraints vgrow="NEVER" />
+    		<RowConstraints vgrow="NEVER" />
+    		<RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+        </rowConstraints>
+         <children>
+            <Label text="Vorname" />
+            <TextField fx:id="vornameTF" GridPane.rowIndex="1" />
+            <Label text="Geburtstag" GridPane.columnIndex="2" />
+            <TextField fx:id="geburtstagTF" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label text="Nachname" GridPane.columnIndex="1" />
+            <TextField fx:id="nachnameTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Straße" GridPane.rowIndex="2" />
+            <TextField fx:id="straßeTF" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+            <Label text="Haus-Nr." GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="hausnrTF" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label text="PLZ" GridPane.rowIndex="4" />
+            <TextField fx:id="plzTF" GridPane.rowIndex="5" />
+            <Label text="Ort" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="ortTF" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </BorderPane.margin>
+      </GridPane>
+   </center>
+</BorderPane>

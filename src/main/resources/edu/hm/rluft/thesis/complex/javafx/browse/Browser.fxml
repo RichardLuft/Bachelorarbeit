@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="root" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.hm.rluft.thesis.complex.javafx.browse.BrowserController">
+   <center>
+      <TableView fx:id="table" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin></TableView>
+   </center>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <right>
+   	<BorderPane>
+    	<center>
+        	<fx:include fx:id="viewer" source="../view/Viewer.fxml" />
+       	</center>
+     </BorderPane>
+   </right>
+</BorderPane>
