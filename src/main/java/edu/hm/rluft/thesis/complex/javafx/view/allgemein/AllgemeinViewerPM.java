@@ -38,6 +38,14 @@ public class AllgemeinViewerPM extends AbstractPM {
 			nummer.setText(data.getNummer());
 			plz.setInteger(data.getPlz());
 			ort.setText(data.getOrt());
+		} else {
+			vorname.setText(null);
+			nachname.setText(null);
+			geburtstag.setDate(null);
+			straﬂe.setText(null);
+			nummer.setText(null);
+			plz.setInteger(null);
+			ort.setText(null);
 		}
 	}
 

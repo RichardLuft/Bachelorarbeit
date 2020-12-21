@@ -4,7 +4,7 @@ import static org.beanfabrics.javafx.binder.BnFxBinder.newTableColumn;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import org.beanfabrics.Path;
@@ -60,7 +60,7 @@ public class BrowserController extends BnFxControllerBase<BrowserPM> {
 		return loader.getController();
 	}
 
-	public void setData(List<ViewData> loadData) {
+	public void setData(Map<Long,ViewData> loadData) {
 		getPresentationModel().setData(loadData);
 	}
 
