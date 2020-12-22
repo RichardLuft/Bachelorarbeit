@@ -19,7 +19,7 @@ public class DataLoader {
 		for(int i = 1; i < 1000; i++) {
 			long kdNr = i;
 			String name = "string-" + i;
-			BankdatenData bank = new BankdatenData("DE001023101421421", "Sparkasse So und So");
+			BankdatenData bank = new BankdatenData("DE0010231014", "Sparkasse So und So");
 			AllgemeinData allgemein = new AllgemeinData("vor-" + i, "nach-" + i, Date.from(Instant.now()), "Irgendeine Straße", i + "a", 02341, "Ort");
 			ViewData viewData = new ViewData(kdNr, name, allgemein, bank);
 			data.put(kdNr,viewData);

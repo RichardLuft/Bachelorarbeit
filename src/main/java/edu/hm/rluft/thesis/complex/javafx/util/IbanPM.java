@@ -21,13 +21,20 @@ public class IbanPM extends TextPM {
 
 	@Validation(path = "this")
 	public ValidationState validate() {
-		try {
-			Integer.parseInt(getText());
-		} catch(NumberFormatException e) {
-			return new ValidationState("Bitte die IBAN ohne Länderkennung eingeben!");
+		if(getText().length() >= 2) {
+			char a = getText().charAt(0);
+			char b = getText().charAt(1);
+			if( (a < 65 || a > 90) || (b < 65 || b > 90) ) {
+				return new ValidationState("Länderkennung bitte wie \"DE\" eingeben!");
+			}
 		}
-		if(getText().length() != 10) {
-			return new ValidationState("Bitte eine 10-stellige Zahl eingeben!");
+		try {
+			Integer.parseInt(getText().substring(2));
+		} catch(NumberFormatException e) {
+			return new ValidationState("Die Länderkennung der IBAN ist falsch!");
+		}
+		if(getText().length() != 12) {
+			return new ValidationState("Bitte nach der Länderkennung eine 10-stellige Zahl eingeben!");
 		} else {
 			return null;
 		}
