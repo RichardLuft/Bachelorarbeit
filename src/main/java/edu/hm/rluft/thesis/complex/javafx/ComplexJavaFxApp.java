@@ -16,7 +16,7 @@ public class ComplexJavaFxApp extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		BrowserController controller = BrowserController.load();
-		controller.setData(DataLoader.LOADER.loadData());
+		controller.setData(DataLoader.LOADER.loadBrowseData());
 		Parent root = controller.getParent();
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);

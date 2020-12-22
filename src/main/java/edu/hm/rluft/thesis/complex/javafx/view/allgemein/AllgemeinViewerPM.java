@@ -30,15 +30,7 @@ public class AllgemeinViewerPM extends AbstractPM {
 	}
 
 	public void setData(AllgemeinData data) {
-		if(data != null) {
-			vorname.setText(data.getVorname());
-			nachname.setText(data.getNachname());
-			geburtstag.setDate(data.getGeburtstag());
-			straﬂe.setText(data.getStraﬂe());
-			nummer.setText(data.getNummer());
-			plz.setInteger(data.getPlz());
-			ort.setText(data.getOrt());
-		} else {
+		if(data == null) {
 			vorname.setText(null);
 			nachname.setText(null);
 			geburtstag.setDate(null);
@@ -46,6 +38,14 @@ public class AllgemeinViewerPM extends AbstractPM {
 			nummer.setText(null);
 			plz.setInteger(null);
 			ort.setText(null);
+		} else {
+			vorname.setText(data.getVorname());
+			nachname.setText(data.getNachname());
+			geburtstag.setDate(data.getGeburtstag());
+			straﬂe.setText(data.getStraﬂe());
+			nummer.setText(data.getNummer());
+			plz.setInteger(data.getPlz());
+			ort.setText(data.getOrt());
 		}
 	}
 

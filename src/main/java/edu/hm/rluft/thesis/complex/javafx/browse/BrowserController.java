@@ -11,7 +11,7 @@ import org.beanfabrics.Path;
 import org.beanfabrics.javafx.binder.BnFxBinder;
 import org.beanfabrics.javafx.controller.BnFxControllerBase;
 
-import edu.hm.rluft.thesis.complex.javafx.data.ViewData;
+import edu.hm.rluft.thesis.complex.javafx.data.BrowseData;
 import edu.hm.rluft.thesis.complex.javafx.view.ViewerController;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -60,7 +60,7 @@ public class BrowserController extends BnFxControllerBase<BrowserPM> {
 		return loader.getController();
 	}
 
-	public void setData(Map<Long,ViewData> loadData) {
+	public void setData(Map<Long,BrowseData> loadData) {
 		getPresentationModel().setData(loadData);
 	}
 

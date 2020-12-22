@@ -8,6 +8,7 @@ import org.beanfabrics.support.Operation;
 import org.beanfabrics.support.Validation;
 
 import edu.hm.rluft.thesis.complex.javafx.data.BankdatenData;
+import edu.hm.rluft.thesis.complex.javafx.data.BankdatenEditorData;
 import edu.hm.rluft.thesis.complex.javafx.data.DataLoader;
 import edu.hm.rluft.thesis.complex.javafx.util.IbanPM;
 
@@ -20,9 +21,9 @@ public class BankdatenEditorPM extends AbstractPM {
 	private OperationPM save = new OperationPM();
 	private Long kdNr;
 
-	public BankdatenEditorPM(Long kdNr, BankdatenData data) {
-		setData(data);
-		this.kdNr = kdNr;
+	public BankdatenEditorPM(BankdatenEditorData data) {
+		kdNr = data.getKdNr();
+		setData(data.getBankdaten());
 		PMManager.setup(this);
 	}
 

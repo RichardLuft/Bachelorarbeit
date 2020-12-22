@@ -8,6 +8,8 @@ import org.beanfabrics.model.PMManager;
 import org.beanfabrics.support.OnChange;
 import org.beanfabrics.support.Validation;
 
+import edu.hm.rluft.thesis.complex.javafx.data.BrowseData;
+import edu.hm.rluft.thesis.complex.javafx.data.DataLoader;
 import edu.hm.rluft.thesis.complex.javafx.data.ViewData;
 import edu.hm.rluft.thesis.complex.javafx.view.ViewerPM;
 
@@ -20,7 +22,7 @@ public class BrowserPM extends AbstractPM {
 		PMManager.setup(this);
 	}
 
-	public void setData(Map<Long, ViewData> listOfData) {
+	public void setData(Map<Long, BrowseData> listOfData) {
 		for (Long key: listOfData.keySet()) {
 			eintraege.put(key, new BrowserZeilePM(listOfData.get(key)));
 		}
@@ -30,9 +32,11 @@ public class BrowserPM extends AbstractPM {
 	void updateSelectedRow() {
 		BrowserZeilePM selection = eintraege.getSelection().getFirst();
 		if(selection != null) {
-			viewer.setData(selection.kundenNr.getLong(), selection.getAllgemein(), selection.getBankdaten());
+			Long kdNr = selection.kundenNr.getLong();
+			ViewData viewData = DataLoader.LOADER.getViewData(kdNr);
+			viewer.setData(kdNr,viewData);
 		} else {
-			viewer.setData(null,null, null);
+			viewer.setData(null,null);
 		}
 	}
 

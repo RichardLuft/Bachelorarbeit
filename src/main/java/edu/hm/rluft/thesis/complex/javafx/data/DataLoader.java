@@ -13,23 +13,33 @@ public class DataLoader {
 
 	}
 
-	private Map<Long, ViewData> data = new HashMap<>();
+	private Map<Long, BrowseData> browseData = new HashMap<>();
 
-	public Map<Long, ViewData> loadData() {
+	public Map<Long, BrowseData> loadBrowseData() {
 		for(int i = 1; i < 1000; i++) {
 			long kdNr = i;
 			String name = "string-" + i;
-			BankdatenData bank = new BankdatenData("DE0010231014", "Sparkasse So und So");
-			AllgemeinData allgemein = new AllgemeinData("vor-" + i, "nach-" + i, Date.from(Instant.now()), "Irgendeine Straße", i + "a", 02341, "Ort");
-			ViewData viewData = new ViewData(kdNr, name, allgemein, bank);
-			data.put(kdNr,viewData);
+			ViewData viewData = createViewData(i);
+			BrowseData data = new BrowseData(kdNr, name, viewData);
+			browseData.put(kdNr,data);
 		}
-		return data;
+		return browseData;
+	}
+
+	private ViewData createViewData(int i) {
+		BankdatenData bank = new BankdatenData("DE0010231014", "Sparkasse So und So");
+		AllgemeinData allgemein = new AllgemeinData("vor-" + i, "nach-" + i, Date.from(Instant.now()), "Irgendeine Straße", i + "a", 02341, "Ort");
+		return new ViewData(allgemein, bank);
 	}
 
 	public void changeData(Long kdNr, BankdatenData bank) {
-		ViewData viewData = data.get(kdNr);
-		viewData = new ViewData(kdNr, viewData.getName(), viewData.getAllgemein(), bank);
+		//		BrowseData browseData = browseData.get(kdNr);
+		//		browseData = new BrowseData(kdNr, browseData.getName(), browseData.getAllgemein(), bank);
+	}
+
+	public ViewData getViewData(Long kdNr) {
+		BrowseData data = browseData.get(kdNr);
+		return data.getViewData();
 	}
 
 }

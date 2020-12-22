@@ -18,12 +18,12 @@ public class BankdatenViewerPM extends AbstractPM {
 	}
 
 	public void setData(BankdatenData data) {
-		if(data != null) {
-			iban.setText(data.getIban());
-			einrichtung.setText(data.getEinrichtung());
-		} else  {
+		if(data == null) {
 			iban.setText(null);
 			einrichtung.setText(null);
+		} else  {
+			iban.setText(data.getIban());
+			einrichtung.setText(data.getEinrichtung());
 		}
 	}
 

@@ -7,8 +7,8 @@ import org.beanfabrics.model.OperationPM;
 import org.beanfabrics.model.PMManager;
 import org.beanfabrics.support.Operation;
 
-import edu.hm.rluft.thesis.complex.javafx.data.AllgemeinData;
-import edu.hm.rluft.thesis.complex.javafx.data.BankdatenData;
+import edu.hm.rluft.thesis.complex.javafx.data.BankdatenEditorData;
+import edu.hm.rluft.thesis.complex.javafx.data.ViewData;
 import edu.hm.rluft.thesis.complex.javafx.editor.BankdatenEditorService;
 import edu.hm.rluft.thesis.complex.javafx.view.allgemein.AllgemeinViewerPM;
 import edu.hm.rluft.thesis.complex.javafx.view.bankdaten.BankdatenViewerPM;
@@ -19,23 +19,28 @@ public class ViewerPM extends AbstractPM {
 
 	private AllgemeinViewerPM allgemein = new AllgemeinViewerPM();
 	private BankdatenViewerPM bankdaten = new BankdatenViewerPM();
-
 	private Long kdNr;
 
 	public ViewerPM() {
 		PMManager.setup(this);
 	}
 
-	public void setData(Long kdNr, AllgemeinData allgemein, BankdatenData bankdaten) {
+	public void setData(Long kdNr, ViewData data) {
 		this.kdNr = kdNr;
-		this.allgemein.setData(allgemein);
-		this.bankdaten.setData(bankdaten);
+		if(data == null) {
+			allgemein.setData(null);
+			bankdaten.setData(null);
+		} else {
+			allgemein.setData(data.getAllgemein());
+			bankdaten.setData(data.getBankdaten());
+		}
 	}
 
 	@Operation
 	public void edit() {
 		try {
-			BankdatenEditorService.SERVICE.openBankdatenEditor(kdNr, bankdaten.getData());
+			BankdatenEditorData editorData = new BankdatenEditorData(kdNr, bankdaten.getData());
+			BankdatenEditorService.SERVICE.openBankdatenEditor(editorData);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
