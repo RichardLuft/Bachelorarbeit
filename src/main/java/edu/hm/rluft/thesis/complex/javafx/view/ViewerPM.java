@@ -7,6 +7,8 @@ import org.beanfabrics.model.OperationPM;
 import org.beanfabrics.model.PMManager;
 import org.beanfabrics.support.Operation;
 
+import com.google.common.annotations.VisibleForTesting;
+
 import edu.hm.rluft.thesis.complex.javafx.data.BankdatenEditorData;
 import edu.hm.rluft.thesis.complex.javafx.data.ViewData;
 import edu.hm.rluft.thesis.complex.javafx.editor.BankdatenEditorService;
@@ -15,7 +17,8 @@ import edu.hm.rluft.thesis.complex.javafx.view.bankdaten.BankdatenViewerPM;
 
 public class ViewerPM extends AbstractPM {
 
-	private OperationPM edit = new OperationPM();
+	@VisibleForTesting
+	public OperationPM edit = new OperationPM();
 
 	private AllgemeinViewerPM allgemein = new AllgemeinViewerPM();
 	private BankdatenViewerPM bankdaten = new BankdatenViewerPM();

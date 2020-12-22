@@ -37,7 +37,6 @@ public class BankdatenEditorController extends BnFxControllerBase<BankdatenEdito
 		saveButton.setOnAction((e) -> {
 			BankdatenEditorService.SERVICE.closeBankdatenEditor();
 		});
-
 	}
 
 	public static BankdatenEditorController load() throws IOException {

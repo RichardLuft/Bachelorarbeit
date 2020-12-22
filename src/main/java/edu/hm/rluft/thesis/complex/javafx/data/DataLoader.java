@@ -10,12 +10,12 @@ public class DataLoader {
 	public static DataLoader LOADER = new DataLoader();
 
 	private DataLoader() {
-
+		browseData = loadBrowseData();
 	}
 
 	private Map<Long, BrowseData> browseData = new HashMap<>();
 
-	public Map<Long, BrowseData> loadBrowseData() {
+	private Map<Long, BrowseData> loadBrowseData() {
 		for(int i = 1; i < 1000; i++) {
 			long kdNr = i;
 			String name = "string-" + i;
@@ -30,6 +30,14 @@ public class DataLoader {
 		BankdatenData bank = new BankdatenData("DE0010231014", "Sparkasse So und So");
 		AllgemeinData allgemein = new AllgemeinData("vor-" + i, "nach-" + i, Date.from(Instant.now()), "Irgendeine Straße", i + "a", 02341, "Ort");
 		return new ViewData(allgemein, bank);
+	}
+
+	public void setLoadData(Map<Long, BrowseData> data) {
+		browseData = new HashMap<>(data);
+	}
+
+	public Map<Long, BrowseData> getBrowseData() {
+		return browseData;
 	}
 
 	public void changeData(Long kdNr, BankdatenData bank) {

@@ -31,7 +31,7 @@ public class IbanPM extends TextPM {
 		try {
 			Integer.parseInt(getText().substring(2));
 		} catch(NumberFormatException e) {
-			return new ValidationState("Die Länderkennung der IBAN ist falsch!");
+			return new ValidationState("Die Länderkennung der IBAN ist zu lang!");
 		}
 		if(getText().length() != 12) {
 			return new ValidationState("Bitte nach der Länderkennung eine 10-stellige Zahl eingeben!");

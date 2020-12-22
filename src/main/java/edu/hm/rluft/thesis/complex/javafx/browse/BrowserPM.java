@@ -8,6 +8,8 @@ import org.beanfabrics.model.PMManager;
 import org.beanfabrics.support.OnChange;
 import org.beanfabrics.support.Validation;
 
+import com.google.common.annotations.VisibleForTesting;
+
 import edu.hm.rluft.thesis.complex.javafx.data.BrowseData;
 import edu.hm.rluft.thesis.complex.javafx.data.DataLoader;
 import edu.hm.rluft.thesis.complex.javafx.data.ViewData;
@@ -15,7 +17,8 @@ import edu.hm.rluft.thesis.complex.javafx.view.ViewerPM;
 
 public class BrowserPM extends AbstractPM {
 
-	private MapPM<Long,BrowserZeilePM> eintraege = new MapPM<>();
+	@VisibleForTesting
+	public MapPM<Long,BrowserZeilePM> eintraege = new MapPM<>();
 	private ViewerPM viewer = new ViewerPM();
 
 	public BrowserPM() {
@@ -23,8 +26,10 @@ public class BrowserPM extends AbstractPM {
 	}
 
 	public void setData(Map<Long, BrowseData> listOfData) {
-		for (Long key: listOfData.keySet()) {
-			eintraege.put(key, new BrowserZeilePM(listOfData.get(key)));
+		if(listOfData != null) {
+			for (Long key: listOfData.keySet()) {
+				eintraege.put(key, new BrowserZeilePM(listOfData.get(key)));
+			}
 		}
 	}
 
