@@ -18,4 +18,8 @@ public class ViewData {
 		return bankdaten;
 	}
 
+	public void setBankdaten(BankdatenData bankdaten) {
+		this.bankdaten = bankdaten;
+	}
+
 }

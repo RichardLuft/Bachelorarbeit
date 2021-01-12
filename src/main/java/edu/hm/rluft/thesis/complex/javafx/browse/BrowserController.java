@@ -1,7 +1,5 @@
 package edu.hm.rluft.thesis.complex.javafx.browse;
 
-import static org.beanfabrics.javafx.binder.BnFxBinder.newTableColumn;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
@@ -44,8 +42,8 @@ public class BrowserController extends BnFxControllerBase<BrowserPM> {
 	private void initializeTableView() {
 		BnFxBinder.bind(table, getLocalModelProvider(), new Path("eintraege"));
 		ObservableList<TableColumn<BrowserZeilePM, ?>> cols = table.getColumns();
-		cols.add(newTableColumn("kundenNr").withText("Kundennummer").withPrefWidth(200).buildAsTextField());
-		cols.add(newTableColumn("name").withText("Name").withPrefWidth(200).buildAsTextField());
+		cols.add(BnFxBinder.newTableColumn("kundenNr").withText("Kundennummer").withPrefWidth(200).buildAsTextField());
+		cols.add(BnFxBinder.newTableColumn("name").withText("Name").withPrefWidth(200).buildAsTextField());
 		table.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 	}
 

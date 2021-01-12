@@ -12,7 +12,7 @@ public class BrowseData {
 		this.view = view;
 	}
 
-	public long getKundenNr() {
+	public Long getKundenNr() {
 		return kundenNr;
 	}
 
@@ -22,6 +22,10 @@ public class BrowseData {
 
 	public ViewData getViewData() {
 		return view;
+	}
+
+	public void setViewData(ViewData view) {
+		this.view = view;
 	}
 
 }

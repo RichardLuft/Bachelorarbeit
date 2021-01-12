@@ -41,7 +41,7 @@ public class BrowserPM extends AbstractPM {
 			ViewData viewData = DataLoader.LOADER.getViewData(kdNr);
 			viewer.setData(kdNr,viewData);
 		} else {
-			viewer.setData(null,null);
+			viewer.setData(0,null);
 		}
 	}
 

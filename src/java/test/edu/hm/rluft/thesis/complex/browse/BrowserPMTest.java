@@ -17,7 +17,6 @@ import edu.hm.rluft.thesis.complex.javafx.browse.BrowserPM;
 import edu.hm.rluft.thesis.complex.javafx.data.AllgemeinData;
 import edu.hm.rluft.thesis.complex.javafx.data.BankdatenData;
 import edu.hm.rluft.thesis.complex.javafx.data.BrowseData;
-import edu.hm.rluft.thesis.complex.javafx.data.DataLoader;
 import edu.hm.rluft.thesis.complex.javafx.data.ViewData;
 import edu.hm.rluft.thesis.complex.javafx.view.ViewerPM;
 
@@ -66,7 +65,6 @@ public class BrowserPMTest {
 	public void testEditAvailable_OneSelection() {
 		// Given:
 		underTest.setData(data);
-		DataLoader.LOADER.setLoadData(data);
 		// When:
 		underTest.eintraege.getSelection().setInterval(0, 0);
 		// Then:

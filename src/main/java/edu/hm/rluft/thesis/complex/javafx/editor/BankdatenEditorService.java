@@ -2,7 +2,6 @@ package edu.hm.rluft.thesis.complex.javafx.editor;
 
 import java.io.IOException;
 
-import edu.hm.rluft.thesis.complex.javafx.data.BankdatenEditorData;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -14,9 +13,9 @@ public class BankdatenEditorService {
 	private BankdatenEditorService() {
 	}
 
-	public void openBankdatenEditor(BankdatenEditorData data) throws IOException {
+	public void openBankdatenEditor(BankdatenEditorPM pm) throws IOException {
 		BankdatenEditorController controller = BankdatenEditorController.load();
-		controller.setPresentationModel(new BankdatenEditorPM(data));
+		controller.setPresentationModel(pm);
 		stage = new Stage();
 		Scene scene = new Scene(controller.getParent());
 		stage.setScene(scene);

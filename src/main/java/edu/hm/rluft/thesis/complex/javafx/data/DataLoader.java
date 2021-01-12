@@ -5,25 +5,29 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Diese Klasse ist als Hilfsklasse für das Laden und Verändern von Daten.
+ * Sie wurde erstellt als Singleton, so dass zur Laufzeit nur eine Instanz vorhanden ist.
+ */
 public class DataLoader {
 
 	public static DataLoader LOADER = new DataLoader();
 
 	private DataLoader() {
-		browseData = loadBrowseData();
+		data = loadBrowseData();
 	}
 
-	private Map<Long, BrowseData> browseData = new HashMap<>();
+	private Map<Long, BrowseData> data = new HashMap<>();
 
 	private Map<Long, BrowseData> loadBrowseData() {
-		for(int i = 1; i < 1000; i++) {
+		for(int i = 0; i < 1000; i++) {
 			long kdNr = i;
 			String name = "string-" + i;
 			ViewData viewData = createViewData(i);
-			BrowseData data = new BrowseData(kdNr, name, viewData);
-			browseData.put(kdNr,data);
+			BrowseData browseData = new BrowseData(kdNr, name, viewData);
+			data.put(kdNr,browseData);
 		}
-		return browseData;
+		return data;
 	}
 
 	private ViewData createViewData(int i) {
@@ -32,22 +36,26 @@ public class DataLoader {
 		return new ViewData(allgemein, bank);
 	}
 
-	public void setLoadData(Map<Long, BrowseData> data) {
-		browseData = new HashMap<>(data);
-	}
-
 	public Map<Long, BrowseData> getBrowseData() {
-		return browseData;
-	}
-
-	public void changeData(Long kdNr, BankdatenData bank) {
-		//		BrowseData browseData = browseData.get(kdNr);
-		//		browseData = new BrowseData(kdNr, browseData.getName(), browseData.getAllgemein(), bank);
+		return data;
 	}
 
 	public ViewData getViewData(Long kdNr) {
-		BrowseData data = browseData.get(kdNr);
-		return data.getViewData();
+		BrowseData browseData = data.get(kdNr);
+		return browseData.getViewData();
+	}
+
+	/**
+	 * Ändert die Bankdaten eines Kunden.
+	 *
+	 * @param kdNr
+	 * @param bankData
+	 */
+	public void changeData(long kdNr, BankdatenData bankData) {
+		BrowseData browseData = data.get(kdNr);
+		ViewData oldViewData = browseData.getViewData();
+		oldViewData.setBankdaten(bankData);
+		browseData.setViewData(oldViewData);
 	}
 
 }

@@ -8,22 +8,26 @@ import org.beanfabrics.support.Operation;
 import org.beanfabrics.support.Validation;
 
 import edu.hm.rluft.thesis.complex.javafx.data.BankdatenData;
-import edu.hm.rluft.thesis.complex.javafx.data.BankdatenEditorData;
-import edu.hm.rluft.thesis.complex.javafx.data.DataLoader;
 import edu.hm.rluft.thesis.complex.javafx.util.IbanPM;
 
 public class BankdatenEditorPM extends AbstractPM {
 
+	/**
+	 * Dieser Callback sorgt dafür, das die Daten nach erfolgreichen Speichern, im Viewer aktualisiert werden.
+	 *
+	 */
+	public interface Callback {
+		public void changeData(BankdatenData data);
+	}
 
 	private TextPM einrichtung = new TextPM();
 	private IbanPM iban = new IbanPM();
 
 	private OperationPM save = new OperationPM();
-	private Long kdNr;
+	private Callback callback;
 
-	public BankdatenEditorPM(BankdatenEditorData data) {
-		kdNr = data.getKdNr();
-		setData(data.getBankdaten());
+	public BankdatenEditorPM(Callback callback) {
+		this.callback = callback;
 		PMManager.setup(this);
 	}
 
@@ -34,7 +38,7 @@ public class BankdatenEditorPM extends AbstractPM {
 
 	@Operation
 	public void save() {
-		DataLoader.LOADER.changeData(kdNr, new BankdatenData(einrichtung.getText(), iban.getIban()));
+		callback.changeData(new BankdatenData(iban.getText(),einrichtung.getText()));
 	}
 
 	@Validation(path = "save", message = "Es liegen Eingabefehler vor")
