@@ -14,3 +14,11 @@ unter `build\libs\beanfabrics-fx-LOCAL-SNAPSHOT.jar` generiert.
 - Die Datei `build.gradle` bearbeiten und den Punkt `beanfabrics_fx_local` mit dem Verzeichnis des `beanfabrics-fx-LOCAL-SNAPSHOT.jar` austauschen.
 - Dann `gradlew eclipse` das Projekt für Eclipse vorbereiten.
 - Nun kann das Projekt in Eclipse eingebunden werden.
+
+# Ausführung des Taschenrechners
+- Ausführen der Klasse `CalculatorJavaFxApp `(JavaFX) oder der Klasse `CalculatorSwingMain` (Swing).
+
+# Ausführung der Tabellenanwendung
+- Die Klasse `DataLoader` wurde als Workaround entwickelt, um eine Datenbank zu simulieren
+- In dieser Klasse kann die Anzahl an Kunden -> Anzahl an Tabelleneinträge gesetzt werden
+- Zum Ausführen der Anwendung wird die Klasse `ComplexJavaFxApp` bereitgestellt
