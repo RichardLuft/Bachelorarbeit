@@ -8,6 +8,7 @@ import org.beanfabrics.support.Operation;
 import org.beanfabrics.support.Validation;
 
 import edu.hm.rluft.thesis.complex.javafx.data.BankdatenData;
+import edu.hm.rluft.thesis.complex.javafx.data.DataLoader;
 import edu.hm.rluft.thesis.complex.javafx.util.IbanPM;
 
 public class BankdatenEditorPM extends AbstractPM {
@@ -18,6 +19,7 @@ public class BankdatenEditorPM extends AbstractPM {
 	 */
 	public interface Callback {
 		public void changeData(BankdatenData data);
+		public long getKundenNr();
 	}
 
 	private TextPM einrichtung = new TextPM();
@@ -38,7 +40,9 @@ public class BankdatenEditorPM extends AbstractPM {
 
 	@Operation
 	public void save() {
-		callback.changeData(new BankdatenData(iban.getText(),einrichtung.getText()));
+		BankdatenData data = new BankdatenData(iban.getText(),einrichtung.getText());
+		callback.changeData(data);
+		DataLoader.LOADER.changeData(callback.getKundenNr(),data);
 	}
 
 	@Validation(path = "save", message = "Es liegen Eingabefehler vor")

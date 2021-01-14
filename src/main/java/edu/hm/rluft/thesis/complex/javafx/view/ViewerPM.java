@@ -10,7 +10,6 @@ import org.beanfabrics.support.Operation;
 import com.google.common.annotations.VisibleForTesting;
 
 import edu.hm.rluft.thesis.complex.javafx.data.BankdatenData;
-import edu.hm.rluft.thesis.complex.javafx.data.DataLoader;
 import edu.hm.rluft.thesis.complex.javafx.data.ViewData;
 import edu.hm.rluft.thesis.complex.javafx.editor.BankdatenEditorPM;
 import edu.hm.rluft.thesis.complex.javafx.editor.BankdatenEditorService;
@@ -29,7 +28,10 @@ public class ViewerPM extends AbstractPM {
 		@Override
 		public void changeData(BankdatenData data) {
 			bankdaten.setData(data);
-			DataLoader.LOADER.changeData(kdNr,data);
+		}
+		@Override
+		public long getKundenNr() {
+			return kdNr;
 		}
 	});
 	private long kdNr;
